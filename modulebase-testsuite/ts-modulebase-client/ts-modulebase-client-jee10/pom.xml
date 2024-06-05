@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>hu.evocelot.modulebase.testsuite</groupId>
+        <artifactId>ts-modulebase-client</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ts-modulebase-client-jee10</artifactId>
+
+    <properties>
+        <version.hu.icellmobilsoft.roaster>${version.hu.icellmobilsoft.roaster.ee10}</version.hu.icellmobilsoft.roaster>
+        <version.hu.icellmobilsoft.coffee>${version.hu.icellmobilsoft.coffee.ee10}</version.hu.icellmobilsoft.coffee>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>hu.icellmobilsoft.coffee</groupId>
+                <artifactId>coffee-bom-project</artifactId>
+                <version>${version.hu.icellmobilsoft.coffee}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>hu.icellmobilsoft.roaster</groupId>
+            <artifactId>roaster-restassured</artifactId>
+            <version>${version.hu.icellmobilsoft.roaster}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${version.org.junit.jupiter.junit-jupiter}</version>
+        </dependency>
+        <dependency>
+            <groupId>hu.evocelot.modulebase.client</groupId>
+            <artifactId>modulebase-client-jee10</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>../../../etc/config/testsuite</directory>
+                <includes>
+                    <include>META-INF/roaster-*.yml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
