@@ -72,9 +72,18 @@ mvn clean install -Ptestsuite
 
 === Database Setup
 
-To set up the project's database schema, use the following repository: https://github.com/Evocelot/liquibase-base
+To set up the project's database schema, use the following repository:
+https://github.com/Evocelot/file-liquibase
 
-As a first step, based on the provided repository, start the appropriate DBMS and update the database schema using Liquibase.
+As a first step, based on the provided repository, start the appropriate DBMS.
+
+After that, run the following command from the project's root directory:
+
+.run-liquibase-scripts
+[source,bash]
+----
+docker compose -f etc/docker/compose/liquibase/docker.compose.local.file-service.liquibase.yml up -d
+----
 
 == Starting the Microservice
 
@@ -92,7 +101,7 @@ After that, attach our built application using the following command:
 .copy-war
 [source,bash]
 ----
-docker cp modulebase-services/sample-jpa-service/target/sample-jpa-service-<VERSION>-SNAPSHOT.war evocelot-modulebase-service:/home/icellmobilsoft/wildfly/standalone/deployments/ROOT.war
+docker cp file-services/sample-jpa-service/target/sample-jpa-service-<VERSION>-SNAPSHOT.war evocelot-file-service:/home/icellmobilsoft/wildfly/standalone/deployments/ROOT.war
 ----
 
 [NOTE]
