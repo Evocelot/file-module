@@ -407,8 +407,8 @@
       {
         "current": {
           "selected": true,
-          "text": "modulebase2",
-          "value": "modulebase2"
+          "text": "file2",
+          "value": "file2"
         },
         "definition": "label_values(exported_job)",
         "hide": 0,

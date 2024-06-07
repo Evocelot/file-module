@@ -1,4 +1,4 @@
-modulebase:
+file:
   service:
     sample:
       base:
@@ -10,8 +10,8 @@ testsuite:
   rest:
     sampleService:
       sample:
-        baseUriKey: modulebase.service.sample.base.uri
+        baseUriKey: file.service.sample.base.uri
         path: /rest/sample/{id}
       samplePost:
-        baseUriKey: modulebase.service.sample.base.uri
+        baseUriKey: file.service.sample.base.uri
         path: /rest/sample

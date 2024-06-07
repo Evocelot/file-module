@@ -1,20 +1,20 @@
 services:
-  evocelot-modulebase-service:
-    container_name: evocelot-modulebase-service
+  evocelot-file-service:
+    container_name: evocelot-file-service
     image: icellmobilsoft/wildfly-mp-full-mariadb-jdbc:3.0.0
     ports:
       - '8081:8080'
       - '9991:9990'
       - '8788:8787'
     volumes:
-      - '../config/wildfly/modulebase.properties:/home/icellmobilsoft/config/wildfly.properties'
+      - '../config/wildfly/file.properties:/home/icellmobilsoft/config/wildfly.properties'
     environment:
       COFFEE_APP_PROJECTSTAGE: Dev
       HIBERNATE_DIALECT: org.hibernate.dialect.MariaDBDialect
-      MARIADB_DS_CONNECTION_URL: jdbc:mariadb://evocelot-modulebase-mariadb:3306/modulebase
+      MARIADB_DS_CONNECTION_URL: jdbc:mariadb://evocelot-file-service-mariadb:3306/file
       MARIADB_DS_USERNAME: root
       MARIADB_DS_PASSWORD: admin
-      OTEL_SERVICE_NAME: evocelot-modulebase
+      OTEL_SERVICE_NAME: evocelot-file-service
       OTEL_SDK_DISABLED: true
       OPENTELEMETRY_SAMPLER_TYPE: ratio
       OPENTELEMETRY_SAMPLER_RATIO: 1

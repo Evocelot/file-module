@@ -8,8 +8,8 @@
         <version>1.1.0</version>
     </parent>
 
-    <groupId>hu.evocelot.modulebase</groupId>
-    <artifactId>modulebase</artifactId>
+    <groupId>hu.evocelot.file</groupId>
+    <artifactId>file</artifactId>
 
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -26,13 +26,13 @@
     </properties>
 
     <modules>
-        <module>modulebase-bom</module>
-        <module>modulebase-api</module>
-        <module>modulebase-model</module>
-        <module>modulebase-common</module>
-        <module>modulebase-services</module>
-        <module>modulebase-client</module>
-        <module>modulebase-testsuite</module>
+        <module>file-bom</module>
+        <module>file-api</module>
+        <module>file-model</module>
+        <module>file-common</module>
+        <module>file-services</module>
+        <module>file-client</module>
+        <module>file-testsuite</module>
     </modules>
 
     <scm>
@@ -139,7 +139,7 @@
                         <configuration>
                             <failOnError>true</failOnError>
                             <failOnWarnings>true</failOnWarnings>
-                            <excludePackageNames>hu.evocelot.modulebase.api.*</excludePackageNames>
+                            <excludePackageNames>hu.evocelot.file.api.*</excludePackageNames>
                             <sourceFileExcludes>**/*_.java</sourceFileExcludes>
                         </configuration>
                     </plugin>

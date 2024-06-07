@@ -1,0 +1,14 @@
+services:
+  evocelot-file-service-liquibase:
+    container_name: evocelot-file-service-liquibase
+    image: evocelot/file-service-liquibase:0.2.0
+    command: ["update"]
+    environment:
+      LIQUIBASE_CONTEXTS: local
+      LIQUIBASE_URL: jdbc:mariadb://evocelot-file-service-mariadb:3306/file
+      LIQUIBASE_USERNAME: root
+      LIQUIBASE_PASSWORD: admin
+      LIQUIBASE_DRIVER: org.mariadb.jdbc.Driver
+networks:
+  default:
+    name: evocelot-network
