@@ -2,40 +2,38 @@ package hu.evocelot.file.service.file.converter;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
-import hu.evocelot.file.api.file._1_0.rest.document.DocumentEntityType;
+import hu.evocelot.file.api.file._1_0.rest.document.DocumentEntityCoreType;
 import hu.evocelot.file.model.Document;
 import hu.icellmobilsoft.coffee.se.api.exception.BaseException;
 import hu.icellmobilsoft.coffee.system.jpa.converter.IEntityConverter;
 
 /**
- * Converter class for handling conversion between {@link Document} and {@link DocumentEntityType}.
+ * Converter class for handling conversion between {@link Document} and {@link DocumentEntityCoreType}.
  *
  * @author mark.danisovszky
  * @since 0.2.0
  */
 @ApplicationScoped
-public class DocumentTypeConverter implements IEntityConverter<Document, DocumentEntityType> {
+public class DocumentEntityCoreTypeConverter implements IEntityConverter<Document, DocumentEntityCoreType> {
 
     @Override
-    public DocumentEntityType convert(Document entity) throws BaseException {
-        DocumentEntityType dto = new DocumentEntityType();
+    public DocumentEntityCoreType convert(Document entity) throws BaseException {
+        DocumentEntityCoreType dto = new DocumentEntityCoreType();
         convert(dto, entity);
         return dto;
     }
 
     @Override
-    public Document convert(DocumentEntityType documentEntityType) throws BaseException {
+    public Document convert(DocumentEntityCoreType documentEntityCoreType) throws BaseException {
         Document entity = new Document();
-        convert(entity, documentEntityType);
+        convert(entity, documentEntityCoreType);
         return entity;
     }
 
     @Override
-    public void convert(DocumentEntityType destinationDto, Document sourceEntity) throws BaseException {
-        destinationDto.setDocumentId(sourceEntity.getId());
+    public void convert(DocumentEntityCoreType destinationDto, Document sourceEntity) throws BaseException {
         destinationDto.setName(sourceEntity.getName());
         destinationDto.setExtension(sourceEntity.getExtension());
-        destinationDto.setHash(sourceEntity.getHash());
         destinationDto.setObjectId(sourceEntity.getObjectId());
         destinationDto.setSystemId(sourceEntity.getSystemId());
         destinationDto.setNumber(sourceEntity.getNumber());
@@ -43,7 +41,7 @@ public class DocumentTypeConverter implements IEntityConverter<Document, Documen
     }
 
     @Override
-    public void convert(Document destinationEntity, DocumentEntityType sourceDto) throws BaseException {
+    public void convert(Document destinationEntity, DocumentEntityCoreType sourceDto) throws BaseException {
         destinationEntity.setName(sourceDto.getName());
         destinationEntity.setExtension(sourceDto.getExtension());
         destinationEntity.setObjectId(sourceDto.getObjectId());

@@ -82,6 +82,16 @@
         </xsd:complexContent>
     </xsd:complexType>
 
+    <xsd:complexType name="DocumentRequestType">
+        <xsd:complexContent>
+            <xsd:extension base="coffeeCommonService:BaseRequestType">
+                <xsd:sequence>
+                    <xsd:element name="document" type="DocumentEntityCoreType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
     <!-- REQUEST/RESPONSE ELEMENTS -->
     <xsd:element name="DocumentResponse">
         <xsd:annotation>
@@ -90,6 +100,17 @@
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="DocumentResponseType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DocumentRequest">
+        <xsd:annotation>
+            <xsd:documentation>The request DTO that contains information about the document.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="DocumentRequestType"/>
             </xsd:complexContent>
         </xsd:complexType>
     </xsd:element>
