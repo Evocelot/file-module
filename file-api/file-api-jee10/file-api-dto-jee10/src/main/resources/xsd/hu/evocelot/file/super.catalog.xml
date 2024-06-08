@@ -11,4 +11,6 @@
         uri="maven:hu.evocelot.file:file-api-schema:jar::!/xsd/hu/evocelot/file/api/COMMON/1.0/common.xsd" />
     <public publicId="http://api.file.evocelot.hu/SAMPLE/1.0/rest/post"
         uri="maven:hu.evocelot.file:file-api-schema:jar::!/xsd/hu/evocelot/file/api/SAMPLE/1.0/rest/post.xsd" />
+    <public publicId="http://api.file.evocelot.hu/FILE/1.0/rest/document"
+            uri="maven:hu.evocelot.file:file-api-schema:jar::!/xsd/hu/evocelot/file/api/FILE/1.0/rest/document.xsd" />
 </catalog>

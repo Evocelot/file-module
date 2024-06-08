@@ -116,3 +116,21 @@ To create the Docker images of the microservices within the xy-services module, 
 ----
 mvn clean install -Pdocker
 ----
+== Where are the files stored?
+
+The files are stored at the path defined in the `/docker/wildfly/docker.compose.local.wildfly.yml` file:
+
+.part-of-the-compose-file
+[source,yml]
+----
+services:
+  evocelot-file-service:
+    container_name: evocelot-file-service
+...
+    volumes:
+      - '../config/wildfly/file.properties:/home/icellmobilsoft/config/wildfly.properties'
+      - /c/file-service:/files
+...
+----
+
+Based on the example snippet, the uploaded files will be saved in the `/c/file-service` directory.

@@ -4,7 +4,7 @@
     <parent>
         <groupId>hu.evocelot.file.testsuite</groupId>
         <artifactId>ts-file</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.2.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ts-file-rest</artifactId>

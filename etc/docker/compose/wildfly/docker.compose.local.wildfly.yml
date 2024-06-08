@@ -8,6 +8,7 @@ services:
       - '8788:8787'
     volumes:
       - '../config/wildfly/file.properties:/home/icellmobilsoft/config/wildfly.properties'
+      - /c/file-service:/files # Stores the files into the /c/file-service folder
     environment:
       COFFEE_APP_PROJECTSTAGE: Dev
       HIBERNATE_DIALECT: org.hibernate.dialect.MariaDBDialect
