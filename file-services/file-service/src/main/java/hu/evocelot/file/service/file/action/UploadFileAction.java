@@ -14,7 +14,7 @@ import hu.evocelot.file.api.rest.jee10.dto.UploadFileRequest;
 import hu.evocelot.file.common.system.rest.action.BaseAction;
 import hu.evocelot.file.dto.exception.enums.FaultType;
 import hu.evocelot.file.model.Document;
-import hu.evocelot.file.service.file.converter.DocumentTypeConverter;
+import hu.evocelot.file.service.file.converter.DocumentEntityTypeConverter;
 import hu.evocelot.file.service.file.helper.FileHelper;
 import hu.evocelot.file.service.file.service.DocumentService;
 import hu.icellmobilsoft.coffee.jpa.helper.TransactionHelper;
@@ -33,7 +33,7 @@ import hu.icellmobilsoft.coffee.se.api.exception.DtoConversionException;
 public class UploadFileAction extends BaseAction {
 
     @Inject
-    private DocumentTypeConverter documentTypeConverter;
+    private DocumentEntityTypeConverter documentEntityTypeConverter;
 
     @Inject
     private DocumentService documentService;
@@ -89,7 +89,7 @@ public class UploadFileAction extends BaseAction {
         }
 
         DocumentResponse response = new DocumentResponse();
-        response.setDocument(documentTypeConverter.convert(document));
+        response.setDocument(documentEntityTypeConverter.convert(document));
         handleSuccessResultType(response);
 
         return response;
