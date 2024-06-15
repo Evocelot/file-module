@@ -1,12 +1,15 @@
 package hu.evocelot.file.api.rest.jee10.rest;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
@@ -67,4 +70,52 @@ public interface IFileServiceRest {
     DocumentResponse updateFileDetails(@Parameter(required = true, description = FileRestInformation.DOCUMENT_ID_PARAM_DESCRIPTION) @PathParam(
             BaseServicePath.PARAM_ID) String documentId, @ValidateXML(xsdPath = XsdConstants.SUPER_XSD_PATH) DocumentRequest documentRequest)
             throws BaseException;
+
+    /**
+     * HTTP DELETE for deleting the physical file and the details of the file.
+     *
+     * @param documentId
+     *         - the id of the entity to delete.
+     * @return - with {@link DocumentResponse} that contains information about the deleted file.
+     * @throws BaseException
+     *         - when an error occurs.
+     */
+    @DELETE
+    @Operation(summary = FileRestInformation.DELETE_DOCUMENT_SUMMARY, description = FileRestInformation.DELETE_DOCUMENT_DESCRIPTION)
+    @Produces(value = { MediaType.APPLICATION_JSON, MediaType.TEXT_XML, MediaType.APPLICATION_XML })
+    @Path(FileRestPath.ID)
+    DocumentResponse deleteFile(@Parameter(required = true, description = FileRestInformation.DOCUMENT_ID_PARAM_DESCRIPTION) @PathParam(
+            BaseServicePath.PARAM_ID) String documentId) throws BaseException;
+
+    /**
+     * HTTP GET for getting the details of the file.
+     *
+     * @param documentId
+     *         - the id of the entity to get.
+     * @return - with {@link DocumentResponse} that contains information about the deleted file.
+     * @throws BaseException
+     *         - when an error occurs.
+     */
+    @GET
+    @Operation(summary = FileRestInformation.GET_DOCUMENT_DETAILS_SUMMARY, description = FileRestInformation.GET_DOCUMENT_DETAILS_DESCRIPTION)
+    @Produces(value = { MediaType.APPLICATION_JSON, MediaType.TEXT_XML, MediaType.APPLICATION_XML })
+    @Path(FileRestPath.ID)
+    DocumentResponse getDocumentDetails(@Parameter(required = true, description = FileRestInformation.DOCUMENT_ID_PARAM_DESCRIPTION) @PathParam(
+            BaseServicePath.PARAM_ID) String documentId) throws BaseException;
+
+    /**
+     * HTTP GET for downloading the physical file.
+     *
+     * @param documentId
+     *         - the id of the entity to get.
+     * @return - with {@link Response} that contains the physical file.
+     * @throws BaseException
+     *         - when an error occurs.
+     */
+    @GET
+    @Operation(summary = FileRestInformation.DOWNLOAD_FILE_SUMMARY, description = FileRestInformation.DOWNLOAD_FILE_DESCRIPTION)
+    @Produces(value = { MediaType.APPLICATION_OCTET_STREAM })
+    @Path(BaseServicePath.ID + FileRestPath.DOWNLOAD)
+    Response downloadFile(@Parameter(required = true, description = FileRestInformation.DOCUMENT_ID_PARAM_DESCRIPTION) @PathParam(
+            BaseServicePath.PARAM_ID) String documentId) throws BaseException;
 }
