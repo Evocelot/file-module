@@ -4,7 +4,7 @@
     <parent>
         <groupId>hu.evocelot.file</groupId>
         <artifactId>file-services</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </parent>
 
     <artifactId>sample-jpa-service</artifactId>
