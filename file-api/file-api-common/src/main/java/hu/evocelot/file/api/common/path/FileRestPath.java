@@ -23,4 +23,9 @@ public class FileRestPath extends BaseServicePath {
      * The {@value } sub-path.
      */
     public static final String UPLOAD = "/upload";
+
+    /**
+     * The {@value } sub-path.
+     */
+    public static final String DOWNLOAD = "/download";
 }

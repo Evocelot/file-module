@@ -47,4 +47,34 @@ public class FileRestInformation {
      * The description of the update document details endpoint.
      */
     public static final String UPDATE_DOCUMENT_DETAILS_DESCRIPTION = "Endpoint for updating the details of the document. ";
+
+    /**
+     * The summary of the delete document endpoint.
+     */
+    public static final String DELETE_DOCUMENT_SUMMARY = "Delete file";
+
+    /**
+     * The description of the delete document endpoint.
+     */
+    public static final String DELETE_DOCUMENT_DESCRIPTION = "Endpoint for deleting the file and the details of the document.";
+
+    /**
+     * The summary of the get file details endpoint.
+     */
+    public static final String GET_DOCUMENT_DETAILS_SUMMARY = "Get file details";
+
+    /**
+     * The description of the get file details endpoint.
+     */
+    public static final String GET_DOCUMENT_DETAILS_DESCRIPTION = "Endpoint for getting the details of the file.";
+
+    /**
+     * The summary of the download file endpoint.
+     */
+    public static final String DOWNLOAD_FILE_SUMMARY = "Download file";
+
+    /**
+     * The description of the download file endpoint.
+     */
+    public static final String DOWNLOAD_FILE_DESCRIPTION = "Endpoint for downloading the physical file.";
 }

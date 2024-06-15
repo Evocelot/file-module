@@ -7,12 +7,14 @@ import jakarta.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
 
+import hu.evocelot.file.api.file._1_0.rest.document.DocumentEntityCoreType;
 import hu.evocelot.file.api.file._1_0.rest.document.DocumentRequest;
 import hu.evocelot.file.api.file._1_0.rest.document.DocumentResponse;
 import hu.evocelot.file.common.system.rest.action.BaseAction;
 import hu.evocelot.file.model.Document;
 import hu.evocelot.file.service.file.converter.DocumentEntityCoreTypeConverter;
 import hu.evocelot.file.service.file.converter.DocumentEntityTypeConverter;
+import hu.evocelot.file.service.file.helper.FileHelper;
 import hu.evocelot.file.service.file.service.DocumentService;
 import hu.icellmobilsoft.coffee.dto.exception.InvalidParameterException;
 import hu.icellmobilsoft.coffee.jpa.helper.TransactionHelper;
@@ -39,6 +41,9 @@ public class UpdateDocumentDetailsAction extends BaseAction {
     @Inject
     private TransactionHelper transactionHelper;
 
+    @Inject
+    private FileHelper fileHelper;
+
     /**
      * For updating the {@link Document} entity.
      *
@@ -58,6 +63,12 @@ public class UpdateDocumentDetailsAction extends BaseAction {
         }
 
         Document document = documentService.findById(documentId, Document.class);
+
+        DocumentEntityCoreType requestDocumentDetails = documentRequest.getDocument();
+        if (!document.getExtension().equals(requestDocumentDetails.getExtension())) {
+            fileHelper.changeExtension(document.getId(), document.getExtension(), requestDocumentDetails.getExtension());
+        }
+
         documentEntityCoreTypeConverter.convert(document, documentRequest.getDocument());
 
         Document finalEntity = document;
