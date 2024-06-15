@@ -4,12 +4,20 @@ A file module application based on Jakarta and
 Wildfly technology, which can be integrated
 into applications capable of HTTP-based communication.
 
+It stores the files in the physical storage.
+
 == Technologies Used
 
 * Jakarta EE 10
 * Wildfly 30
 * Maven 3.9.0+
 * Coffee 2.6.0
+* Mariadb
+
+== Dockerhub
+
+You can find the current released Docker images here:
+link:https://hub.docker.com/repository/docker/evocelot/file-service/general[dockerhub]
 
 == Directory Structure
 
@@ -134,3 +142,13 @@ services:
 ----
 
 Based on the example snippet, the uploaded files will be saved in the `/c/file-service` directory.
+
+== Openapi
+
+The list of endpoints supported by the application can be queried
+through the /openapi endpoint, and can even be tested
+through the Swagger UI.
+
+== Documentation
+
+For more detailed documentation, see: link:docs/index.adoc[docs]
