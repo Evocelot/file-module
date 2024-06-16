@@ -109,7 +109,7 @@ After that, attach our built application using the following command:
 .copy-war
 [source,bash]
 ----
-docker cp file-services/sample-jpa-service/target/sample-jpa-service-<VERSION>-SNAPSHOT.war evocelot-file-service:/home/icellmobilsoft/wildfly/standalone/deployments/ROOT.war
+docker cp file-services/file-service/target/file-service-<VERSION>-SNAPSHOT.war evocelot-file-service:/home/icellmobilsoft/wildfly/standalone/deployments/ROOT.war
 ----
 
 [NOTE]
